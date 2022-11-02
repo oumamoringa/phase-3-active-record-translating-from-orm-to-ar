@@ -1,7 +1,8 @@
+require 'pry'
 #Database connection
 ActiveRecord::Base.establish_connection(
   adapter: "sqlite3",
-  database: "db.dogs.sqlite"
+  database: "db/dogs.sqlite"
 )
 
 #creatting students table
@@ -13,6 +14,9 @@ CREATE TABLE IF NOT EXISTS dogs(
   breed TEXT
 )
 SQL
+ActiveRecord::Base.connection.execute(sql)
+
 
 class Dog < ActiveRecord::Base
 end
+binding.pry
